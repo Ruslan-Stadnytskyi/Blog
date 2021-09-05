@@ -1,0 +1,21 @@
+<div class="header">
+  <div class="logo-wrap">
+    <a [routerLink]="['']" class="logo"></a>
+    <div class="logo-text">Admin panel</div>
+    </div>
+  <nav>
+    <ul *ngIf="auth.isAuthenticated()" class="nav-lists">
+      <li [routerLink]="['/admin','create']"
+        routerLinkActive="active"><a >Створити
+      </a></li>
+      <li [routerLink]="['/admin','dashboard']" routerLinkActive="active"><a >
+        Панель</a></li>
+      <li (click)="logout($event)"><a href="#" >Вийти</a></li>
+    </ul>
+  </nav>
+</div>
+
+
+<div class="wrapper">
+<router-outlet></router-outlet>
+</div>

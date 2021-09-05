@@ -1,0 +1,45 @@
+<form [formGroup]="form" class="card" (ngSubmit)="submit()">
+  <h2>Увійти в панель</h2>
+
+<div class="alert" *ngIf="auth.error$ | async as error">
+
+ <p>{{error}}
+</div>
+  <div class="alert-info" *ngIf="message">
+    <p>{{message}}</p>
+  </div>
+  <div
+    [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
+    class="form-control">
+    <label for="email">Email:</label>
+    <input formControlName="email" type="text" placeholder="Введіть email"
+           id="email">
+    <div *ngIf="form.get('email').touched && form.get('email').invalid"
+         class="validation">
+      <small *ngIf="form.get('email').errors?.required">Не може бути
+        пустим</small>
+      <small *ngIf="form.get('email').errors?.email">Некоректний email</small>
+    </div>
+  </div>
+
+  <div [ngClass]="{invalid: form.get('password').touched &&
+  form.get('password').invalid}"
+       class="form-control">
+    <label for="password">Пароль:</label>
+    <input formControlName="password" type="password"
+           placeholder="Введіть пароль" id="password">
+    <div *ngIf="form.get('password').touched && form.get('password').invalid"
+         class="validation">
+      <small *ngIf="form.get('password').errors?.required">Не може бути
+        пустим</small>
+      <small
+        *ngIf="form.get('password')?.errors?.minlength">Мінімум 6
+        символів</small>
+    </div>
+  </div>
+
+  <button [disabled]="flag" type="submit"
+          class="btn btn-admin">Увійти
+  </button>
+
+</form>

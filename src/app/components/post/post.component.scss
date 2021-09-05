@@ -1,0 +1,16 @@
+@import '../../../variables';
+.card{
+  width: 50vw;
+  border: 1px solid transparent;
+  height: 200px;
+  color: #161616;
+background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 20px;
+ box-shadow: $shadow;
+  padding: 10px 20px;
+}
+.card-header{
+  display: flex;
+  justify-content: space-between;
+}
